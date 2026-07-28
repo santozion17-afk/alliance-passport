@@ -1,6 +1,9 @@
 # Alliance Passport submission package
 
-> Submission gate: do not submit while any `PENDING` marker remains.
+> Eligibility gate: this is a Poland regional listing. Do not submit unless the
+> human owner can truthfully satisfy Superteam's Poland eligibility rules.
+>
+> Evidence gate: do not submit while any `PENDING` marker remains.
 
 ## Project name
 
@@ -66,6 +69,8 @@ issuance and replay-proofing every receipt.
 
 ## Human submission action
 
-The owner must sign in to Superteam Earn, open the listing, and submit this
-package from a verified human profile. The listing explicitly disallows agent
-submission, so this final platform action cannot be automated or bypassed.
+The owner must first confirm truthful eligibility for the Poland regional
+listing. If eligible, sign in to Superteam Earn, open the listing, and submit
+this package from a verified human profile after all evidence markers are
+complete. The listing explicitly disallows agent submission, so this final
+platform action cannot be automated or bypassed.
