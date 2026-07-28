@@ -31,7 +31,8 @@ every purchase idempotent, and earned tier badges use Token-2022's
   cross-merchant redemption, and a non-transferable Token-2022 badge.
 - Responsive React client for passport, network, offer, provenance, and
   architecture views.
-- Reproducible GitHub Actions checks and a manual devnet deployment route.
+- Reproducible GitHub Actions checks, a bounded scheduled devnet-faucet retry,
+  and a local deployment route that keeps the deployer key off GitHub.
 
 ## Architecture
 
