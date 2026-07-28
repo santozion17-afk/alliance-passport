@@ -8,8 +8,9 @@ Alliance Passport - coalition loyalty that compounds across merchants
 
 ## Public links
 
-- Live devnet client: PENDING
-- GitHub repository: PENDING
+- Live client: https://santozion17-afk.github.io/alliance-passport/
+- GitHub repository: https://github.com/santozion17-afk/alliance-passport
+- Passing CI: https://github.com/santozion17-afk/alliance-passport/actions/workflows/ci.yml
 - Solana Explorer program: PENDING
 - Initialize coalition transaction: PENDING
 - Register merchant transaction: PENDING

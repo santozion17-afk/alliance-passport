@@ -13,6 +13,8 @@ every purchase idempotent, and earned tier badges use Token-2022's
 ## Status
 
 - Network: local validator tested; devnet deployment pending
+- Live client: https://santozion17-afk.github.io/alliance-passport/
+- Repository: https://github.com/santozion17-afk/alliance-passport
 - Framework: Anchor 0.32.1
 - Solana CLI: 2.3.0
 - Program ID: `2z8tVq9DT8DUnKf8UY2ZDSWBatePKXtXhY4HQXbwfGkE`
