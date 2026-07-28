@@ -1,0 +1,30 @@
+{
+  "license": "ISC",
+  "scripts": {
+    "format": "prettier \"tests/**/*.ts\" --write",
+    "format:check": "prettier \"tests/**/*.ts\" --check",
+    "test:rust": "cargo test --manifest-path programs/alliance-passport/Cargo.toml",
+    "test:program": "bash scripts/test-program.sh",
+    "test:app": "pnpm --dir app test",
+    "build:program": "anchor build",
+    "build:app": "pnpm --dir app build",
+    "bootstrap:devnet": "node scripts/bootstrap-devnet.mjs",
+    "check": "pnpm format:check && pnpm test:rust && pnpm test:app && pnpm build:app"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1"
+  },
+  "devDependencies": {
+    "@solana/spl-token": "0.4.15",
+    "@types/bn.js": "^5.1.0",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.0.0",
+    "chai": "^4.3.4",
+    "mocha": "^11.7.6",
+    "prettier": "^2.6.2",
+    "ts-mocha": "^11.1.0",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "^5.7.3"
+  }
+}

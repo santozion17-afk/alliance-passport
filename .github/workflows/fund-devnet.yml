@@ -1,0 +1,44 @@
+name: Fund devnet deployer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: alliance-passport-devnet-faucet
+  cancel-in-progress: false
+
+jobs:
+  fund:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DESTINATION: BHXMca1jXS6vJyoooPQRdoKEouAGwg7Ey3odH3XSoaGQ
+      RPC_URL: https://api.devnet.solana.com
+    steps:
+      - name: Install Solana CLI
+        run: |
+          sh -c "$(curl -sSfL https://release.anza.xyz/v2.3.0/install)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+
+      - name: Request one devnet allocation
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+          umask 077
+          solana-keygen new --no-bip39-passphrase --silent --outfile /tmp/faucet-wallet.json
+          solana airdrop 2 --url "$RPC_URL" --keypair /tmp/faucet-wallet.json
+          if ! solana airdrop 2 --url "$RPC_URL" --keypair /tmp/faucet-wallet.json; then
+            echo "Second permitted faucet request was rate-limited; continuing with the first allocation."
+          fi
+          solana balance --url "$RPC_URL" --keypair /tmp/faucet-wallet.json
+
+      - name: Transfer test SOL to deployer
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+          solana transfer "$DESTINATION" ALL \
+            --allow-unfunded-recipient \
+            --url "$RPC_URL" \
+            --keypair /tmp/faucet-wallet.json
+          rm -f /tmp/faucet-wallet.json
